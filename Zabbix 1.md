@@ -13,6 +13,8 @@
 #### Требования к результаты
 1. Прикрепите в файл README.md скриншот авторизации в админке.
 
+![1](https://github.com/slava1005/FOPS-13/assets/114395964/32ac0676-e83a-48a9-a60a-df6796a5ee67)
+
 
 2. Приложите в файл README.md текст использованных команд в GitHub.
 
@@ -25,14 +27,26 @@
 #### Процесс выполнения
 1. Выполняя ДЗ, сверяйтесь с процессом отражённым в записи лекции.
 2. Установите Zabbix Agent на 2 вирт.машины, одной из них может быть ваш Zabbix Server.
+![2_A](https://github.com/slava1005/FOPS-13/assets/114395964/5e67e7cb-3be7-494e-ab32-ae1a0c05a0c9)
+
+
 3. Добавьте Zabbix Server в список разрешенных серверов ваших Zabbix Agentов.
 4. Добавьте Zabbix Agentов в раздел Configuration > Hosts вашего Zabbix Servera.
 5. Проверьте, что в разделе Latest Data начали появляться данные с добавленных агентов.
 
 #### Требования к результаты
 1. Приложите в файл README.md скриншот раздела Configuration > Hosts, где видно, что агенты подключены к серверу
+![config host](https://github.com/slava1005/FOPS-13/assets/114395964/738646ac-09e4-4515-91c2-41f8f3e11206)
+
+
 2. Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером
+![log zabbix](https://github.com/slava1005/FOPS-13/assets/114395964/d77cc271-3652-46cf-875e-3b72a8be11a3)
+
+
 3. Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
+![monit latest data](https://github.com/slava1005/FOPS-13/assets/114395964/ca4a624d-7fe4-4822-b44f-eaed137c5a6e)
+
+
 4. Приложите в файл README.md текст использованных команд в GitHub
 
 ---
