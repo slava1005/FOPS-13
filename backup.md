@@ -15,8 +15,11 @@
 
 ### Ответ
 Команда:
+
 rsync -av --delete --exclude '.*' /home/chistov/ /tmp/backup
+
 Скриншот:
+
 ![rsync 2](https://github.com/slava1005/FOPS-13/assets/114395964/ac656778-86b0-491c-996a-bfd663bfc02e)
 
 ## Задание 2
@@ -27,7 +30,9 @@ rsync -av --delete --exclude '.*' /home/chistov/ /tmp/backup
 На проверку направить файл crontab и скриншот с результатом работы утилиты.
 ### Ответ
 Скрипт:
+
 #!/bin/sh
+
 rsync -av --delete --exclude '.*' /home/slava/ /tmp/backup >> /var/log/crontab.log
 
 Конфиг crontab
