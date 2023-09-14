@@ -10,12 +10,11 @@
 - Для проверки корректности настройки, разорвите один из кабелей между одним из маршрутизаторов и Switch0 и запустите ping между PC0 и Server0.
 - На проверку отправьте получившуюся схему в формате pkt и скриншот, где виден процесс настройки маршрутизатора.
 
+![Router 1](https://github.com/slava1005/FOPS-13/assets/114395964/f0556952-891e-408f-865e-b8408d315da5)
 
-![](FOPS_13/Keerelived/Router 1.png)
+![Router 2](https://github.com/slava1005/FOPS-13/assets/114395964/ef15bd27-8f7f-495c-a3e4-ae2a1e8f2cef)
 
-![](FOPS_13/Keerelived/Router 2.png)
-
-![](FOPS_13/Keerelived/list 3.png)
+![list 3](https://github.com/slava1005/FOPS-13/assets/114395964/c4c85ea1-0215-48d9-aa0c-e14fdd12260b)
 
 ------
 
