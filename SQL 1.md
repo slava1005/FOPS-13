@@ -7,7 +7,7 @@ SELECT DISTINCT district
 FROM address 
 WHERE district  LIKE 'k%a' and district not LIKE  '% %';
 ```
-![](FOPS_13/SQL. Часть 1/001.jpg)ext
+![001](https://github.com/slava1005/FOPS-13/assets/114395964/816609b5-3231-4d50-91f1-7dcd968da3bf)
 
 ### Задание 2
 Получите из таблицы платежей за прокат фильмов информацию по платежам, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 года включительно и стоимость которых превышает 10.00.
@@ -17,7 +17,8 @@ FROM payment
 WHERE payment_date  BETWEEN '2005-06-15' and '2005-06-19' and amount > 10
 ORDER BY payment_date;
 ```
-![](FOPS_13/SQL. Часть 1/003.jpg)
+![003](https://github.com/slava1005/FOPS-13/assets/114395964/64f20dd6-b543-4126-b69c-58fd3e75aee7)
+
 ### Задание 3
 Получите последние пять аренд фильмов.
 ```
@@ -26,7 +27,7 @@ FROM rental
 ORDER by rental_date DESC 
 LIMIT 5;
 ```
-![](FOPS_13/SQL. Часть 1/004.jpg)
+![004](https://github.com/slava1005/FOPS-13/assets/114395964/dc094c3a-86b3-46ea-89b9-65d598234855)
 
 ### Задание 4
 Одним запросом получите активных покупателей, имена которых Kelly или Willie.
@@ -39,4 +40,4 @@ SELECT LOWER(REPLACE(first_name, 'L', 'p')), LOWER(last_name)
 FROM customer
 WHERE first_name LIKE 'Willie' OR first_name  LIKE 'Kelly';
 ```
-![](FOPS_13/SQL. Часть 1/007.jpg)
+![007](https://github.com/slava1005/FOPS-13/assets/114395964/630065dd-0154-4289-8592-c68899b0326c)
