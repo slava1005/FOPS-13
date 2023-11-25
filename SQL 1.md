@@ -12,12 +12,9 @@ WHERE district  LIKE 'k%a' and district not LIKE  '% %';
 ### Задание 2
 Получите из таблицы платежей за прокат фильмов информацию по платежам, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 года включительно и стоимость которых превышает 10.00.
 ```
-SELECT *
-FROM payment
-WHERE payment_date  BETWEEN '2005-06-15' and '2005-06-19' and amount > 10
-ORDER BY payment_date;
+SELECT * FROM payment WHERE payment_date BETWEEN '2005-06-15 00:00:00' AND '2005-06-18 23:59:59' AND amount > 10;
 ```
-![003](https://github.com/slava1005/FOPS-13/assets/114395964/64f20dd6-b543-4126-b69c-58fd3e75aee7)
+![2a](https://github.com/slava1005/FOPS-13/assets/114395964/51920d26-bb7e-4dd1-ab3b-ff6f6a198fa2)
 
 ### Задание 3
 Получите последние пять аренд фильмов.
