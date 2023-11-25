@@ -46,8 +46,7 @@ CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 ```
 mysql> SELECT user FROM mysql.user
 ```
-![](FOPS_13/DDL DDE/1_2.jpg)
-
+![1_2](https://github.com/slava1005/FOPS-13/assets/114395964/f954b87d-692d-450c-a946-6fdd2ac134ec)
 
 ### 1.4. Дайте все права для пользователя sys_temp.
 ```
@@ -57,7 +56,8 @@ mysql> GRANT ALL PRIVILEGES ON . TO 'sys_temp'@'localhost';
 ```
 mysql> SHOW GRANTS FOR 'sys_temp'@'localhost';
 ```
-![](FOPS_13/DDL DDE/1_5.jpg)
+
+![1_5](https://github.com/slava1005/FOPS-13/assets/114395964/95c6804b-d87f-45d3-ae05-c4a9c0ff7883)
 
 ### 1.6. Переподключитесь к базе данных от имени sys_temp. Для смены типа аутентификации с sha2 используйте запрос:
 ```
@@ -67,17 +67,17 @@ ALTER USER 'sys_temp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 
 ### 1.7. Восстановите дамп в базу данных.
 
-![](FOPS_13/DDL DDE/1_7.jpg)
+![1_7](https://github.com/slava1005/FOPS-13/assets/114395964/549a7a61-3a6d-4430-a0a8-9f540304a132)
 
 ### 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
-
-![](FOPS_13/DDL DDE/1_8.jpg)
-![](FOPS_13/DDL DDE/1_8_1.jpg)
-![](FOPS_13/DDL DDE/1_8_2.jpg)
+![1_8](https://github.com/slava1005/FOPS-13/assets/114395964/3d7a2404-69cb-41cc-a0e9-3e70c4b95c7d)
+![1_8_1](https://github.com/slava1005/FOPS-13/assets/114395964/6ef8977d-add8-49d7-b115-0fd01f338c99)
+![1_8_2](https://github.com/slava1005/FOPS-13/assets/114395964/e3a60cbe-1e7d-4b00-943e-b3605ed380e7)
  
  Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.
 
-Задание 2 Составьте таблицу, используя любой текстовый редактор или Excel, в которой должно быть два столбца: в первом должны быть названия таблиц восстановленной базы, во втором названия первичных ключей этих таблиц. Пример: (скриншот/текст)
+### Задание 2 Составьте таблицу, используя любой текстовый редактор или Excel, в которой должно быть два столбца: в первом должны быть названия таблиц восстановленной базы, во втором названия первичных ключей этих таблиц. Пример: (скриншот/текст)
 
 Название таблицы | Название первичного ключа customer | customer_id
-![](FOPS_13/DDL DDE/2.jpg)
+![2](https://github.com/slava1005/FOPS-13/assets/114395964/34f5fa7e-08b2-4767-a903-67ce6b425b65)
+
