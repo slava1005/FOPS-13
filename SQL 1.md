@@ -16,6 +16,13 @@ SELECT * FROM payment WHERE payment_date BETWEEN '2005-06-15 00:00:00' AND '2005
 ```
 ![2a](https://github.com/slava1005/FOPS-13/assets/114395964/51920d26-bb7e-4dd1-ab3b-ff6f6a198fa2)
 
+2 вариант.
+```
+SELECT p.amount , p.payment_date FROM payment p WHERE p.payment_date BETWEEN '2005-06-15' AND '2005-06-18' AND p.amount >10 ORDER BY p.amount DESC;
+```
+![2var](https://github.com/slava1005/FOPS-13/assets/114395964/67ab2d92-db3a-4878-b8e4-ef2ef3269b46)
+
+
 ### Задание 3
 Получите последние пять аренд фильмов.
 ```
