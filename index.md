@@ -43,12 +43,11 @@ where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and
 ```
 Старый вариант
 
-Подробнее
-Как понимаю данный запрос выдает платежи людей, взявших в аренду фильмы за определенную дату. И в запросе, на мой взгляд, много лишней информации: например, инвентаризация (inventory_id), дата аренды (rental_date), фильмы (film). Из-за чего исходный запрос у меня получился аж на 16615 милисекунд (почти 17 сек) и прочитанных строк вышло 642000.
+Я так понял, данный запрос выдает платежи людей, взявших в аренду фильмы за определенную дату. И в запросе, видно, много лишней информации: например, инвентаризация (inventory_id), дата аренды (rental_date), фильмы (film). Из-за чего исходный запрос получился длительностью аж на 16615 милисекунд (почти 17 сек) и прочитанных строк вышло 642000.
 
-Я решил пойти путем не добавления индексов (на что нужно потратить лишнее время), а путем удаления ненужной информации, что было подсказано на вебинаре.
+Но может пойти путем не добавления индексов (на что нужно потратить лишнее время), а путем удаления ненужной информации, что было подсказано на вебинаре преподавателем.
 
-Запрос у меня получился следующий:
+Получилось следующее:
 ```
 select distinct concat(c.last_name, ' ', c.first_name) as Клиент, sum(p.amount) over (partition by c.customer_id) as 'Общий платеж'
 from payment p, customer c where date(p.payment_date) = '2005-07-30' and p.customer_id = c.customer_id;
@@ -56,14 +55,15 @@ from payment p, customer c where date(p.payment_date) = '2005-07-30' and p.custo
 ![2aa](https://github.com/slava1005/FOPS-13/assets/114395964/87226b3e-0128-40c0-9d32-99335cef389f)
 
 
-В следствие чего анализ запросв получился уже другим: время 11 милисекунд и строк прочитано 391.
+В результате анализ запросов получился уже: время 11 милисекунд и строк прочитано 391.
 
-Новый вариант
-Создан индекс для даты платежа
+### Новый вариант
+
+Создаём индекс для даты платежа:
 ```
 create index day_of_payment on payment(payment_date);
 ```
-Переделан запрос с объединением таблиц. Таблица film не используется.
+Переделываем запрос с объединением таблиц. Таблицу film не будем использовать.
 ```
 SELECT concat(c.last_name, ' ', c.first_name) AS Клиент, SUM(p.amount) as Платеж
 FROM customer c
@@ -73,7 +73,7 @@ join inventory i on i.inventory_id = r.inventory_id
 where date(p.payment_date) >= '2005-07-30' and date(p.payment_date) < DATE_ADD('2005-07-30', INTERVAL 1 DAY)
 GROUP BY c.customer_id;
 ```
-Вывод анализа. Скорость обработки с индексом стала еще быстрее по сравнению с самым первым моим варинатом.
+Вывод анализа. Скорость обработки с индексом стала еще быстрее по сравнению с самым первым варинатом.
 ```
 -> Limit: 200 row(s)  (cost=12152 rows=190) (actual time=1.62..121 rows=200 loops=1)
     -> Group aggregate: sum(p.amount)  (cost=12152 rows=190) (actual time=1.61..120 rows=200 loops=1)
@@ -85,5 +85,5 @@ GROUP BY c.customer_id;
                 -> Single-row covering index lookup on i using PRIMARY (inventory_id=r.inventory_id)  (cost=0.25 rows=1) (actual time=0.00226..0.00292 rows=1 loops=7694)
             -> Index lookup on p using day_of_payment (payment_date=r.rental_date), with index condition: ((cast(p.payment_date as date) >= '2005-07-30') and (cast(p.payment_date as date) < <cache>(('2005-07-30' + interval 1 day))))  (cost=0.254 rows=1.02) (actual time=0.00352..0.00357 rows=0.0412 loops=7694)
 ```
+![2d](https://github.com/slava1005/FOPS-13/assets/114395964/c159b139-638c-4cae-a20e-9077ad4bac58)
 
-![](FOPS_13/Index/2d.jpg)
