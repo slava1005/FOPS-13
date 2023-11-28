@@ -21,7 +21,8 @@ join city c2 on c2.city_id = a.city_id
 group by sotr.staff_id, c2.city_id 
 having COUNT(c.customer_id) > 300;
 ```
-![](FOPS_13/SQL Часть 2/1.jpg)
+![1](https://github.com/slava1005/FOPS-13/assets/114395964/9f9eaa40-5c5b-4601-98a9-1ed55a1c19f4)
+
 ### Задание 2
 Получите количество фильмов, продолжительность которых больше средней продолжительности всех фильмов.
 
@@ -30,7 +31,8 @@ having COUNT(c.customer_id) > 300;
 select count(film_id) as "кол-во фильмов" from film 
 where length > (select AVG(length) from film);
 ```
-![](FOPS_13/SQL Часть 2/2.jpg)
+![2](https://github.com/slava1005/FOPS-13/assets/114395964/1cad286d-4f6d-4632-b07e-0cdb9f73375b)
+
 ### Задание 3
 Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.
 
@@ -42,4 +44,4 @@ group by MONTH(payment_date)
 order by SUM(p.amount ) 
 desc limit 1;
 ```
-![](FOPS_13/SQL Часть 2/3.jpg)
+![3](https://github.com/slava1005/FOPS-13/assets/114395964/04d0b061-affc-4c40-a94a-7b7e295d650b)
