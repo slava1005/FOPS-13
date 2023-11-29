@@ -47,8 +47,10 @@ desc limit 1;
 ![3](https://github.com/slava1005/FOPS-13/assets/114395964/04d0b061-affc-4c40-a94a-7b7e295d650b)
 
 Новая команда:
+```
 SELECT DATE_FORMAT(p.payment_date, '%Y-%M') AS Дата , (sum(p.amount )) AS Сумма , count((p.rental_id )) AS Аренд
 FROM payment p 
 GROUP BY Дата
 ORDER BY Сумма DESC
 LIMIT 1;
+```
