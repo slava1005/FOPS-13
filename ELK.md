@@ -15,7 +15,7 @@
 Задание 3. Logstash
 Установите и запустите Logstash и Nginx. С помощью Logstash отправьте access-лог Nginx в Elasticsearch.
 
-![3](https://github.com/slava1005/FOPS-13/assets/114395964/5ce29fd2-ed82-4f5b-8a69-977d301aa8ae)
+![3](https://github.com/slava1005/FOPS-13/assets/114395964/c3f84187-c415-4e00-b7ea-389ff4a524f2)
 
 Содержимое файла /etc/elasticsearch/elasticsearch.yml
 ```
@@ -57,6 +57,6 @@ output {
 Задание 4. Filebeat.
 Установите и запустите Filebeat. Переключите поставку логов Nginx с Logstash на Filebeat.
 
-![4](https://github.com/slava1005/FOPS-13/assets/114395964/e8155c6d-1bb5-4f57-987b-cae6a341ca09)
+![4](https://github.com/slava1005/FOPS-13/assets/114395964/712c852f-beaa-4d8f-9436-afbe0f5f3372)
 
 Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.
